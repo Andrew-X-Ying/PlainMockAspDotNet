@@ -2,7 +2,7 @@
 
 public class Program
 {
-    public static void Main(string[] args)
+    public static async Task Main(string[] args)
     {
         WebHostBuilder whb = new WebHostBuilder().UseHttpListener();
         Action<ApplicationBuilder> configure = 
@@ -10,7 +10,7 @@ public class Program
                 .Use(MiddleWares.BarMiddleware)
                 .Use(MiddleWares.BazMiddleware);
         WebHost wh = whb.Configure(configure).Build();
-        wh.StartAsync();            
+        await wh.StartAsync();
     }
 }
 
