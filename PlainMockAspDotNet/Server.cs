@@ -16,7 +16,7 @@ public class HttpListenerServer
         Console.WriteLine("Server started and is listening on: {0}", string.Join(';', _urls));
         while (true)
         {
-            var listenerContext = await _httpListener.GetContextAsync();
+            HttpListenerContext listenerContext = await _httpListener.GetContextAsync();
             var feature = new HttpListenerFeature(listenerContext);
             var features = new FeatureCollection()
                 .Set<IHttpRequestFeature>(feature)
