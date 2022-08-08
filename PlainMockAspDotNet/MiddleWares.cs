@@ -13,5 +13,11 @@ public class MiddleWares
     };
 
     public static RequestDelegate BazMiddleware(RequestDelegate next)
-    => context => context.Response.WriteAsync("Baz");
+    {
+        return async delegate (HttpContext context)
+        {
+            await context.Response.WriteAsync("Baz");
+            await next(context);
+        };
+    }
 }
