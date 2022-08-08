@@ -2,3 +2,4 @@
 PlainMockAspDotNet/bin/
 PlainMockAspDotNet/obj/
 .vscode/
+.fake
